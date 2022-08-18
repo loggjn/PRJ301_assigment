@@ -30,5 +30,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <tr/>
             </c:forEach>
         </table>
+        
+        <form>
+            <form action="addCong_Month" method="POST">
+            Year: <input type="text" name="year" /> <br/>
+            Month: <select name="month">
+                <option value="Bsc">Bsc</option>
+                <option value="Master" selected>Master</option>
+                <option value="PhD">PhD</option>
+            </select><br>
+            
+            <input type="submit" value="Login" /> <br/>
+            <a href="forget">Forget password?</a>
+            
+        </form>
+        </form>
     </body>
 </html>
