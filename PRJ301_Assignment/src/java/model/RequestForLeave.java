@@ -14,8 +14,7 @@ public class RequestForLeave {
     private int rid;
     private Employee employee;
     private Date from , to;
-    private TypeRequest typeRequest;
-    private int status ;
+    private int reason;
 
     public int getRid() {
         return rid;
@@ -49,21 +48,15 @@ public class RequestForLeave {
         this.to = to;
     }
 
-    public TypeRequest getTypeRequest() {
-        return typeRequest;
+    public int getReason() {
+        return reason;
     }
 
-    public void setTypeRequest(TypeRequest typeRequest) {
-        this.typeRequest = typeRequest;
+    public void setReason(int reason) {
+        this.reason = reason;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
+    
     
     
 }

@@ -5,6 +5,7 @@
 package model;
 
 import helper.DateTimeHelper;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,21 +18,21 @@ public class TimeSheet {
     private Date checkin;
     private Date checkout;
     private Date cidate;
-    private Slot slot;
-    
-    private float late(){
-        float a = DateTimeHelper.getHourAndMinute(checkin);
-        float b = DateTimeHelper.getHourAndMinute(slot.getTimein());
-        return a -b ;
+    private Slot slot;   
+    private int countSlot;
+
+    public int getCountSlot() {
+        return countSlot;
+    }
+
+    public void setCountSlot(int countSlot) {
+        this.countSlot = countSlot;
     }
     
     
-    private float leave(){
-        float a = DateTimeHelper.getHourAndMinute(checkout);
-        float b = DateTimeHelper.getHourAndMinute(slot.getTimeout());
-        return b-a ;
-    }
     
+    
+  
     
     public Date getCidate(){
         return DateTimeHelper.removeTime(checkin);
@@ -48,8 +49,7 @@ public class TimeSheet {
     public void setSlot(Slot slot) {
         this.slot = slot;
     }
-
-    
+  
     public int getTid() {
         return tid;
     }

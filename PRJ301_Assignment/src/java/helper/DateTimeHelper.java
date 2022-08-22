@@ -38,21 +38,22 @@ public class DateTimeHelper {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         c.set(Calendar.HOUR_OF_DAY, 0);
-        c.set(Calendar.MINUTE,0);
-        c.set(Calendar.MILLISECOND,0);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
     
-    public static float diffHours(Date end , Date start)
+    public static float diffHours(Date end, Date start)
     {
-        long diff = end.getTime()-start.getTime();
-        float hours =((diff/1000))*(1.0f)/3600;
-        return hours;
+       long diff = end.getTime() - start.getTime();
+       float hours = ((diff/1000)*(1.0f))/3600;
+       return hours;
     }
     
     public static int getDayOfMonth(Date date)
     {
-        Calendar c= Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
         c.setTime(date);
         return c.get(Calendar.DAY_OF_MONTH);
     }
@@ -64,35 +65,39 @@ public class DateTimeHelper {
         return c.get(Calendar.DAY_OF_WEEK);
     }
     
+    public static int getMonth(Date date)
+    {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        return c.get(Calendar.MONTH);
+    }
+    
+    public static int getYear(Date date)
+    {
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        return c.get(Calendar.YEAR);
+    }
+    
     public static Timestamp getTimeStamp(Date data)
     {
         return new Timestamp(data.getTime());
     }
     
-    public static ArrayList<ViewDate> getDates (Date from , Date to)
+    
+    public static ArrayList<Date> getDates(Date from, Date to)
     {
-        ArrayList<ViewDate> dates = new ArrayList<>();
+        ArrayList<Date> dates = new ArrayList<>();
         int day =0;
-        while (true)
+        while(true)
         {
             Date d = addDays(from, day);
-            ViewDate item = new ViewDate();
-            item.setValue(d);
             day++;
-            dates.add(item);
-            if(item.getValue().getTime() - to.getTime() == 0)
+            dates.add(d);
+            if(d.getTime() - to.getTime() == 0)
                 break;
         }
         return dates;
     }
-    
-    public static float getHourAndMinute(Date date){
-        Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        float a = (float)((hour*60+minute)/60);
-        return a;
-    }
-    
     
 }

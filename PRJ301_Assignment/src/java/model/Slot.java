@@ -13,7 +13,8 @@ import java.util.Date;
 public class Slot {
     private int sid;
     private Date timein, timeout;
-
+    private String title;
+    
     public int getSid() {
         return sid;
     }
@@ -36,6 +37,14 @@ public class Slot {
 
     public void setTimeout(Date timeout) {
         this.timeout = timeout;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
     
     
